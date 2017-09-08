@@ -59,7 +59,7 @@ class Level:
         wall = pygame.image.load(image_wall).convert()
         starting = pygame.image.load(image_start).convert()
         arrival = pygame.image.load(image_arrival).convert_alpha()
-        treasure_r = pygame.image.load(treasure).convert_alpha()
+        # treasure_r = pygame.image.load(treasure).convert_alpha()
 
         # The list of levels
         num_line = 0

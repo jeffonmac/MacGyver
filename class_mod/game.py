@@ -2,9 +2,12 @@
 # -*- coding: utf-8 -*-
 
 from pygame.locals import *
+
+# from class_mod.items import Items  # in test #
 from class_mod.level import *
 from class_mod.persona import *
 from constants import *
+
 
 
 class Game:
@@ -14,6 +17,15 @@ class Game:
         window = pygame.display.set_mode((side_window, side_window))
         # Title
         pygame.display.set_caption(window_title)
+
+        # Variables to check if the items have been picked or not:
+        # TubeNotPicked = True
+        # EtherNotPicked = True
+        # NeedleNotPicked = True
+        # elv = 'n1'
+        # tresorImg = pygame.image.load(treasure).convert_alpha()
+        # treas = Items(tresorImg, elv)
+
 
         # Main Loop
         global wall, level
@@ -89,3 +101,32 @@ class Game:
                 # Victory -> Back to Home
                 if level.structure[macg.case_y][macg.case_x] == 'a':
                     continue_game = 0
+
+
+                    # if TubeNotPicked:
+                    #     window.blit(treas.img_objet, (treas.x, treas.y))
+                    # if (macg.x, macg.y) == (treas.x, treas.y):
+                    #     TubeNotPicked = False
+                    #     window.blit(treas.img_objet, (0, 0))
+                    #
+                    # if NeedleNotPicked:
+                    #     window.blit(treas.img_objet, (treas.x, treas.y))
+                    # if (macg.x, macg.y) == (treas.x, treas.y):
+                    #     NeedleNotPicked = False
+                    #     window.blit(treas.img_objet, (10, 0))
+                    #
+                    # if EtherNotPicked:
+                    #     window.blit(treas.img_objet, (treas.x, treas.y))
+                    # if (macg.x, macg.y) == (treas.x, treas.y):
+                    #     EtherNotPicked = False
+                    #     window.blit(treas.img_objet, (30, 0))
+                    #
+                    # # refreshing screen
+                    # pygame.display.flip()
+                    #
+                    # # EndGame Victory or loose
+                    # if level.structure[macg.case_y][macg.case_x] == 'a':  # If MacGyver reach the guard he win and the game is terminated.
+                    #     if TubeNotPicked == False:
+                    #         if NeedleNotPicked == False:
+                    #             if EtherNotPicked == False:
+                    #                 continue_game = 0

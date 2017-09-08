@@ -9,6 +9,8 @@ All treasures through a labyrinth and join the guard.
 If all the treasures have not been recovered before joining the guard
 MacGyver dies.
 
+Files : constants.py, macgyver.py, n1, README.md, game.py, level.py, persona.py items.py
+
 """
 
 from class_mod.game import Game
