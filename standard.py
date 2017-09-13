@@ -43,9 +43,9 @@ with open(self.files, "r") as file:
         """
 
         # Loading images
-        wall = pygame.image.load(constants.image_wall).convert()
-        starting = pygame.image.load(constants.image_start).convert()
-        arrival = pygame.image.load(constants.image_arrival).convert_alpha()
+        wall = pygame.image.load(constants.IMAGE_WALL).convert()
+        starting = pygame.image.load(constants.IMAGE_START).convert()
+        arrival = pygame.image.load(constants.IMAGE_ARRIVAL).convert_alpha()
 
         # The list of levels
         num_line = 0
@@ -54,8 +54,8 @@ with open(self.files, "r") as file:
             num_case = 0
             for sprite in line:
                 # Calculates the actual pixel position
-                x = num_case * constants.sprite_rating
-                y = num_line * constants.sprite_rating
+                x = num_case * constants.SPRITE_RADING
+                y = num_line * constants.SPRITE_RADING
                 if sprite == 'm':  # m = Wall
                     window.blit(wall, (x, y))
                 elif sprite == 'd':  # d = Start
@@ -90,13 +90,13 @@ class Persona:
 
         if direction == 'right':
             # Not to exceed the screen
-            if self.case_x < (constants.num_sprite_rating - 1):
+            if self.case_x < (constants.NUM_SPRITE_RADING - 1):
                 # Check that the destination box is not a wall
                 if self.level.structure[self.case_y][self.case_x + 1] != 'm':
                     # Moving +1
                     self.case_x += 1
                     # The "real" pixel position
-                    self.x = self.case_x * constants.sprite_rating
+                    self.x = self.case_x * constants.SPRITE_RADING
             # Image in the right direction
             self.direction = self.right
 
@@ -105,7 +105,7 @@ class Persona:
             if self.case_x > 0:
                 if self.level.structure[self.case_y][self.case_x - 1] != 'm':
                     self.case_x -= 1
-                    self.x = self.case_x * constants.sprite_rating
+                    self.x = self.case_x * constants.SPRITE_RADING
             self.direction = self.left
 
         # Move up
@@ -113,13 +113,13 @@ class Persona:
             if self.case_y > 0:
                 if self.level.structure[self.case_y - 1][self.case_x] != 'm':
                     self.case_y -= 1
-                    self.y = self.case_y * constants.sprite_rating
+                    self.y = self.case_y * constants.SPRITE_RADING
             self.direction = self.up
 
         # Moving Down
         if direction == 'down':
-            if self.case_y < (constants.num_sprite_rating - 1):
+            if self.case_y < (constants.NUM_SPRITE_RADING - 1):
                 if self.level.structure[self.case_y + 1][self.case_x] != 'm':
                     self.case_y += 1
-                    self.y = self.case_y * constants.sprite_rating
+                    self.y = self.case_y * constants.SPRITE_RADING
             self.direction = self.low

@@ -8,7 +8,7 @@ MacGyver Labyrinth Game Class
 """
 
 import pygame
-from random import randint
+# from random import randint
 
 from constants import *
 
@@ -56,28 +56,28 @@ class Level:
         """
 
         # Loading images
-        wall = pygame.image.load(image_wall).convert()
-        starting = pygame.image.load(image_start).convert()
-        arrival = pygame.image.load(image_arrival).convert_alpha()
-        # treasure_r = pygame.image.load(treasure).convert_alpha()
+        wall = pygame.image.load(IMAGE_WALL).convert()
+        starting = pygame.image.load(IMAGE_START).convert()
+        arrival = pygame.image.load(IMAGE_ARRIVAL).convert_alpha()
+        treasure_r = pygame.image.load(TREASURE).convert_alpha()
 
         # The list of levels
         num_line = 0
-        # z = randint(1, 8)
+        # z = randint(1, 2)
         for line in self.structure:
             # The list of lines
             num_case = 0
             for sprite in line:
                 # Calculates the actual pixel position
-                x = num_case * sprite_rating
-                y = num_line * sprite_rating
+                x = num_case * SPRITE_RADING
+                y = num_line * SPRITE_RADING
                 if sprite == 'm':  # m = Wall
                     window.blit(wall, (x, y))
                 elif sprite == 'd':  # d = Start
                     window.blit(starting, (x, y))
                 elif sprite == 'a':  # a = Arrival
                     window.blit(arrival, (x, y))
-                # elif sprite == '0' and z == 1:
-                #     window.blit(treasure_r, (x, y))
+                elif sprite == 'z':
+                    window.blit(treasure_r, (x, y))
                 num_case += 1
             num_line += 1

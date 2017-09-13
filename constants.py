@@ -8,18 +8,18 @@ MacGyver Game Constants
 """
 
 # Window Settings
-num_sprite_rating = 15
-sprite_rating = 30
-side_window = num_sprite_rating * sprite_rating
+NUM_SPRITE_RADING = 15
+SPRITE_RADING = 30
+SIDE_WINDOW = NUM_SPRITE_RADING * SPRITE_RADING
 
 # Customizing the window
-window_title = "MacGyver"
+WINDOW_TITLE = "MacGyver"
 
 # Images of the game
-image_home = "img/home.png"
-image_background = "img/background.png"
-image_wall = "img/wall.png"
-image_start = "img/start.png"
-image_arrival = "img/guard.png"
-treasure = "img/tresor.png"
-back = "img/back.png"
+IMAGE_HOME = "img/home.png"
+IMAGE_BACKGROUD = "img/background.png"
+IMAGE_WALL = "img/wall.png"
+IMAGE_START = "img/start.png"
+IMAGE_ARRIVAL = "img/guard.png"
+TREASURE = "img/tresor.png"
+BACK = "img/back.png"

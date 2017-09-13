@@ -36,13 +36,13 @@ class Persona:
 
         if direction == 'right':
             # Not to exceed the screen
-            if self.case_x < (num_sprite_rating - 1):
+            if self.case_x < (NUM_SPRITE_RADING - 1):
                 # Check that the destination box is not a wall
                 if self.level.structure[self.case_y][self.case_x + 1] != 'm':
                     # Moving +1
                     self.case_x += 1
                     # The "real" pixel position
-                    self.x = self.case_x * sprite_rating
+                    self.x = self.case_x * SPRITE_RADING
             # Image in the right direction
             self.direction = self.right
 
@@ -51,7 +51,7 @@ class Persona:
             if self.case_x > 0:
                 if self.level.structure[self.case_y][self.case_x - 1] != 'm':
                     self.case_x -= 1
-                    self.x = self.case_x * sprite_rating
+                    self.x = self.case_x * SPRITE_RADING
             self.direction = self.left
 
         # Move up
@@ -59,13 +59,13 @@ class Persona:
             if self.case_y > 0:
                 if self.level.structure[self.case_y - 1][self.case_x] != 'm':
                     self.case_y -= 1
-                    self.y = self.case_y * sprite_rating
+                    self.y = self.case_y * SPRITE_RADING
             self.direction = self.up
 
         # Moving Down
         if direction == 'down':
-            if self.case_y < (num_sprite_rating - 1):
+            if self.case_y < (NUM_SPRITE_RADING - 1):
                 if self.level.structure[self.case_y + 1][self.case_x] != 'm':
                     self.case_y += 1
-                    self.y = self.case_y * sprite_rating
+                    self.y = self.case_y * SPRITE_RADING
             self.direction = self.low
