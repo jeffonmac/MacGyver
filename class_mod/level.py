@@ -8,7 +8,7 @@ MacGyver Labyrinth Game Class
 """
 
 import pygame
-# from random import randint
+from random import randint
 
 from constants import *
 
@@ -63,7 +63,7 @@ class Level:
 
         # The list of levels
         num_line = 0
-        # z = randint(1, 2)
+        z = randint(1, 2)
         for line in self.structure:
             # The list of lines
             num_case = 0
@@ -77,7 +77,7 @@ class Level:
                     window.blit(starting, (x, y))
                 elif sprite == 'a':  # a = Arrival
                     window.blit(arrival, (x, y))
-                elif sprite == 'z':
-                    window.blit(treasure_r, (x, y))
+                # elif sprite == 'z':
+                #     window.blit(treasure_r, (x, y))
                 num_case += 1
             num_line += 1

@@ -20,13 +20,15 @@ class Game:
         pygame.display.set_caption(WINDOW_TITLE)
 
         # Variables to check if the items have been picked or not:
-        TubeNotPicked = True
-        EtherNotPicked = True
-        NeedleNotPicked = True
-        elv = 'n1'
-        tresorImg = pygame.image.load(TREASURE).convert_alpha()
-        treas = Items(tresorImg, elv)
+        Treasure_one = True
+        Treasure_two = True
+        Treasure_three = True
+        win = False
 
+        level = Level('n1')
+        tresorImg = pygame.image.load(TREASURE).convert_alpha()
+        treas = Items(tresorImg, level)
+        treas.display(tresorImg, window)
 
         # Main Loop
         go_on = 1
@@ -53,7 +55,7 @@ class Game:
                         # Variable of choice of level
                         choice = 0
                     elif event.type == KEYDOWN:
-                        # Launch of Level 1
+                        # Launch of Level
                         if event.key == K_F1:
                             continue_welcome = False  # We leave the reception
                             choice = 'n1'  # Set the level to be loaded
@@ -102,23 +104,23 @@ class Game:
                 if level.structure[macg.case_y][macg.case_x] == 'a':
                     continue_game = False
 
-                    if TubeNotPicked:
-                        window.blit(treas.img_objet, (treas.x, treas.y))
+                    if Treasure_one:
+                        window.blit(treas.img_object, (treas.x, treas.y))
                     if (macg.x, macg.y) == (treas.x, treas.y):
-                        TubeNotPicked = False
-                        window.blit(treas.img_objet, (0, 0))
+                        Treasure_one = False
+                        window.blit(treas.img_object, (0, 0))
 
-                    if NeedleNotPicked:
-                        window.blit(treas.img_objet, (treas.x, treas.y))
+                    if Treasure_three:
+                        window.blit(treas.img_object, (treas.x, treas.y))
                     if (macg.x, macg.y) == (treas.x, treas.y):
-                        NeedleNotPicked = False
-                        window.blit(treas.img_objet, (10, 0))
+                        Treasure_three = False
+                        window.blit(treas.img_object, (10, 0))
 
-                    if EtherNotPicked:
-                        window.blit(treas.img_objet, (treas.x, treas.y))
+                    if Treasure_two:
+                        window.blit(treas.img_object, (treas.x, treas.y))
                     if (macg.x, macg.y) == (treas.x, treas.y):
-                        EtherNotPicked = False
-                        window.blit(treas.img_objet, (30, 0))
+                        Treasure_two = False
+                        window.blit(treas.img_object, (30, 0))
 
                     # refreshing screen
                     pygame.display.flip()
@@ -126,7 +128,15 @@ class Game:
                     # EndGame Victory or loose
                     if level.structure[macg.case_y][
                         macg.case_x] == 'a':  # If MacGyver reach the guard he win and the game is terminated.
-                        if TubeNotPicked == False:
-                            if NeedleNotPicked == False:
-                                if EtherNotPicked == False:
-                                    continue_game = 0
+                        if Treasure_one == False:
+                            if Treasure_three == False:
+                                if Treasure_two == False:
+                                    win = True
+
+                    if win == True:
+                        window.blit(wall, (0, 0))
+                        font = pygame.font.Font(None, 25)
+                        text = font.render("You win !", 1, (255, 255, 255))
+                        textrect = text.get_rect()
+                        textrect.centerx, textrect.centery = SPRITE_RADING / 2, SPRITE_RADING / 2
+                        window.blit(text, textrect)
